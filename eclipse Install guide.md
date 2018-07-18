@@ -18,6 +18,10 @@ export PATH=${JAVA_HOME}/bin/:$PATH
 安装成功后会显示jdk版本   
 
 2、安装eclipse  
+（0）去eclipse官网下载合适的版本（Linux64位C/C++）：  
+http://www.eclipse.org/downloads/eclipse-packages/  
+
+
 (1) 解压eclipse到/opt文件夹下，指令为：  
 sudo tar zxvf eclipse-inst-linux64.tar.gz -C /opt/  
 

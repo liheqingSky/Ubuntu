@@ -1,22 +1,22 @@
 # Ubuntu
 
-eclipse安装
-1、安装对应的JRE环境
-（1）下载jdk文件压缩包：
-解压文件到对应的目录：tar zxvf jdk-8u121-linux-x64.tar.gz -C /opt 
+#eclipse安装  
+1、安装对应的JRE环境  
+（1）下载jdk文件压缩包：  
+解压文件到对应的目录：tar zxvf jdk-8u121-linux-x64.tar.gz -C /opt  
 
-(2)打开 /etc/profile,打开指令：sudo vi /etc/profile，在文件的最后一行添加如下语句：
-export JAVA_HOME=/opt/jvm/jdk1.8.0_121
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin/:$PATH 
+(2)打开 /etc/profile,打开指令：sudo vi /etc/profile，在文件的最后一行添加如下语句：  
+export JAVA_HOME=/opt/jvm/jdk1.8.0_121  
+export JRE_HOME=${JAVA_HOME}/jre  
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib  
+export PATH=${JAVA_HOME}/bin/:$PATH   
 
-(3)查看JDK是否安装成功 
-先输入 source /etc/profile 
-然后输入 java -version 
-安装成功后会显示jdk版本 
+(3)查看JDK是否安装成功   
+先输入 source /etc/profile   
+然后输入 java -version   
+安装成功后会显示jdk版本   
 
-2、安装eclipse
+2、安装eclipse  
 
 解压eclipse到/opt文件夹下，指令为：sudo tar zxvf eclipse-inst-linux64.tar.gz -C /opt/ 
 

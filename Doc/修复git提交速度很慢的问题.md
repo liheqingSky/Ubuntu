@@ -17,4 +17,5 @@ ping github.global.ssl.fastly.net 得到ip：151.101.185.194
 修改系统的配置默认为vim:
 git config --global core.editor vim
 
-
+# git提交每次都要输入账户密码问题：
+解决方法：git config --global credential.helper store

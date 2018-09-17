@@ -1,0 +1,30 @@
+建议切换为root用户安装，如果使用普通用户通过sudo提权到root权限，环境变量用的是root。
+
+安装python2和python3
+agp-get install python python3
+
+安装pip和pip3
+apt-get install python-pip python3-pip
+默认pip版本为较低版本，需要更新，更新后由于新版本和老版本函数名有差异，因此需要修改代码。
+更新pip：pip install -upgrade pip
+vim /usr/bin/pip
+修改为：
+from pip import __main__
+if __name__ == '__name__':
+  sys.exit(__main__._main())
+  
+#2、解决pip install速度非常慢的问题：
+原因：国外官方pypi经常被墙，导致不可用，所以我们最好是将自己使用的pip源更换一下，这样就能解决被墙导致的装不上库的烦恼
+国内比较顺手的源：清华大学的pip源[https://pypi.tuna.tsinghua.edu.cn/simple]，它是官网pypi的镜像，每隔5分钟同步一次
+
+正常使用：pip install gevent
+临时使用：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple gevent，这样就会从清华这边的镜像去安装gevent库
+永久修改：
+a、linux用户：
+vim ~/.pip/pip.conf
+ [global]
+ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+b、windows用户：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下
+ [global]
+ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+

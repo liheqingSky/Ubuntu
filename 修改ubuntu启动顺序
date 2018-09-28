@@ -1,5 +1,5 @@
 
-总结：
+一、修改ubuntu启动顺序
 使用root权限
 1、vim /etc/default/grub--->修改 GRUB_DEFAULT=index 对应的index为你要默认启动的系统版本在菜单中的序号（默认0开始排列）
    GRUB_TIMEOUT=5 --->默认开机启动等待时间为5s
@@ -15,3 +15,24 @@
 其中的“GRUB_DEFAULT=0”就是设置的默认启动项了。
 GRUB启动项是按照启动菜单依次使用数字进行索引了，起始数字为0。
 结合前面的系统启动菜单，我们可以看到，Windows8的启动项在第5项，因此这里我们就需要修改为4（因为第一项是从0开始的）
+
+二、修改开机内核版本
+1、由于系统为多系统,系统开机默认先进入到index为0的系统grub.cfg配置文件中去,因此我们需要在这里修改启动内核版本
+2、要启动的系统为index=2的ubuntu16.04系统, 必须先保证ubuntu16.04系统中已经安装了我们需要切换的内核版本(dpkg -i linux*.deb)
+3、修改index=0的系统 /boot/grub/grub.cfg 配置文件, 把内核的加载语句修改到默认系统启动那一栏即可.
+
+
+三、linux修改ip(重启后永久生效)  /etc/network/interfaces
+1、系统启动时自动启动网口,添加atuo一行: auto eth0
+2、使用DHCP自动配置接口 iface eth0 inet dhcp
+3、手动配置网口
+配置如下:
+auto eth0
+iface eth0 inet static
+address 192.168.10.234
+netmask 255.255.255.0
+gateway 192.168.10.254
+
+
+
+

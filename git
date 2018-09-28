@@ -1,0 +1,8 @@
+
+git技巧
+1 git补全脚本：https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+  在 ~/.bashrc 文件中，添加：
+    if [ -f ~/.git-completion.bash ]; then
+        . ~/.git-completion.bash
+    fi
+2
